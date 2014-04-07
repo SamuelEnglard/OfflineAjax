@@ -156,6 +156,7 @@
         var request = this._requests[this._requests.length - 1];
         request.body = body;
         request.sent = true;
+        this._send();
     };
 
     if (bool === true)
