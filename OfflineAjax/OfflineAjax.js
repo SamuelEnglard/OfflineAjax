@@ -131,7 +131,14 @@
     OfflineXHR.prototype.abort = function ()
     {
         this._readyState = xhrOriginal.UNSENT;
-        this._requests.pop();
+        if (this._requests.length > 0)
+        {
+            this._requests.pop();
+        }
+        else
+        {
+            this._core.abort();
+        }
     };
 
     OfflineXHR.prototype.open = function (method, url, async, user, password)
