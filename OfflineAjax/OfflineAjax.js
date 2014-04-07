@@ -9,7 +9,7 @@
     } 
     else if (typeof exports !== 'undefined') 
     {
-        factory((exports);
+        factory(exports);
     } 
     else 
     {
