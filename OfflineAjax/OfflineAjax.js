@@ -103,7 +103,7 @@
         {
             var request = this._requests.shift();
 
-            if (request.sent = false)
+            if (request.sent === false)
             {
                 this._send();
                 return;
