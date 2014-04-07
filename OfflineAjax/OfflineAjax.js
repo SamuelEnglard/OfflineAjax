@@ -28,6 +28,10 @@
 
         this._core.addEventListener("timeout", function (e)
         {
+            if (typeof $this.ontimeout === "function")
+            {
+                $this.ontimeout(e);
+            }
             $this._eventDiv.dispatchEvent(e);
         });
         this._core.addEventListener("onreadystatechange", function (e)
@@ -41,6 +45,10 @@
                 $this.responseXML = $this._core.responseXML;
             }
             $this._readyState = $this._core.readyState;
+            if (typeof $this.onreadystatechange === "function")
+            {
+                $this.onreadystatechange(e);
+            }
             $this._eventDiv.dispatchEvent(e);
             $this._send();
         });
