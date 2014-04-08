@@ -168,7 +168,7 @@
 
     if (bool === true)
     {
-        window.XMLHttpRequest = OfflineXHR;
+        window.OfflineXHR = OfflineXHR;
     }
     else
     {
