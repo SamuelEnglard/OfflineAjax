@@ -56,7 +56,7 @@
             }
             $this._eventDiv.dispatchEvent(e);
         });
-        this._core.addEventListener("onreadystatechange", function (e)
+        this._core.addEventListener("readystatechange", function (e)
         {
             if ($this._core.readyState === xhrOriginal.DONE)
             {
