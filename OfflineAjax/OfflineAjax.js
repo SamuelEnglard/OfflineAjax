@@ -38,6 +38,9 @@
         /// <field name="responseXML">
         ///     Retrieves the response body as an XML Document Object Model (DOM) object. 
         /// </field>
+        /// <field name="timeout" type="Number" integer="true">
+        ///     Gets or sets the time-out value. 
+        /// </field>
 
         var $this = this;
 
