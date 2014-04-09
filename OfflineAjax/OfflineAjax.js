@@ -82,31 +82,16 @@
 
         this._readyState = xhrOriginal.UNSENT;
 
-        Object.defineProperties(this, {
-            readyState:
-                {
-                    get: function ()
-                    {
-                        /// <value name="readyState" type="Number" integer="true">
-                        ///     Retrieves the current state of the request operation.
-                        /// </value>
-                        return $this._readyState;
-                    }
-                },
-            timeout:
-                {
-                    get: function ()
-                    {
-                        /// <value name="timeout" type="Number" integer="true">
-                        ///     Gets or sets the time-out value. 
-                        /// </value>
-                        return $this._core.timeout;
-                    },
-                    set: function (value)
-                    {
-                        $this._core.timeout = value;
-                    }
-                }
+        this.timeout = 0;
+
+        Object.defineProperty(this, "readState", {
+            get: function ()
+            {
+                /// <value name="readyState" type="Number" integer="true">
+                ///     Retrieves the current state of the request operation.
+                /// </value>
+                return $this._readyState;
+            }
         });
 
         this._requests = [];
@@ -165,6 +150,7 @@
             {
                 this._core.setRequestHeader(headerName, request.headers[headerName]);
             }
+            this._core.timeout = this.timeout;
             this._core.send(request.body);
         }
     };
