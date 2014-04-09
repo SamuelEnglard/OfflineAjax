@@ -18,6 +18,15 @@
 
     var xhrOriginal = XMLHttpRequest;
 
+    function createCloneEvent(e)
+    {
+        /// <param name="e" type="Event" />
+
+        var clone = document.createEvent("Event");
+        clone.initEvent(e.type, e.bubbles, e.cancelable);
+        return clone;
+    }
+
     var OfflineXHR = function ()
     {
         /// <summary>
@@ -54,7 +63,7 @@
             {
                 $this.ontimeout(e);
             }
-            $this._eventDiv.dispatchEvent(e);
+            $this._eventDiv.dispatchEvent(createCloneEvent(e));
         });
         this._core.addEventListener("readystatechange", function (e)
         {
@@ -71,7 +80,7 @@
             {
                 $this.onreadystatechange(e);
             }
-            $this._eventDiv.dispatchEvent(e);
+            $this._eventDiv.dispatchEvent(createCloneEvent(e));
             $this._send();
         });
 
